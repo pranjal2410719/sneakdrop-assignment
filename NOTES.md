@@ -158,26 +158,30 @@ The fake payment service handles all real-world webhook edge cases:
 
 ---
 
-## 6. Video Walkthrough Outline (Screen Recording Guide)
+## 6. Screen Recordings
 
-When recording your Loom walkthrough video, cover the following structure:
+The required screen recording and the supporting demos are committed under [`assets/`](./assets).
 
-1. **Introduction & What Was Built**:
-   - Monorepo architecture (`apps/web`, `apps/api`, `packages/shared`, `tests`, `scripts`).
-   - SQLite WAL transaction model for ACID reliability and zero-setup deployment.
+### Main Walkthrough
 
-2. **Inventory Reservation & Concurrency Guarantees**:
-   - Show `reservation.service.ts` transaction block.
-   - Explain how available stock is dynamically verified within an atomic lock to guarantee 0 overselling.
-   - Demonstrate `tests/concurrency/simultaneous-buy.test.ts` passing (100 simultaneous requests).
+| Video | Duration | Covers |
+| --- | --- | --- |
+| [`intro.mp4`](./assets/intro.mp4) | 5:00 | The full explanation: what was built, architecture, how inventory reservation prevents two users buying the same pair, the 5-minute hold, the FIFO waiting queue and automatic promotion, how delayed/duplicate/out-of-order payment events are handled, and how the system was tested |
 
-3. **5-Minute Hold & Waiting Queue**:
-   - Show `HoldCountdown` live timer and `ReservationExpiryWorker`.
-   - Show user switching in UI: User 1 holds pair -> User 2 joins queue -> User 1 cancels / expires -> User 2 automatically receives hold.
+### Supporting Demos
 
-4. **Unreliable Payment Handling**:
-   - Explain `payment.service.ts` idempotency, late event expiration check, and out-of-order sequence check.
-   - Run `npm run simulate:payments` live to demonstrate each scenario.
+| Video | Duration | Command / Flow Shown |
+| --- | --- | --- |
+| [`seed.mp4`](./assets/seed.mp4) | 0:11 | `npm run seed` — initialises 20 pairs and demo users |
+| [`unit_test.mp4`](./assets/unit_test.mp4) | 0:09 | `npm run test:unit` — reservation, queue, payment idempotency |
+| [`integration_test.mp4`](./assets/integration_test.mp4) | 0:10 | `npm run test:integration` — purchase flow, hold expiry, queue promotion |
+| [`concurrency_tests.mp4`](./assets/concurrency_tests.mp4) | 0:07 | `npm run test:concurrency` — simultaneous Buy and duplicate payment races |
+| [`all_tests.mp4`](./assets/all_tests.mp4) | 0:15 | `npm test` — the complete suite (18 tests, 8 suites) |
+| [`payments.mp4`](./assets/payments.mp4) | 0:11 | Payment webhook completing a purchase |
+| [`payments_simulation.mp4`](./assets/payments_simulation.mp4) | 0:10 | `npm run simulate:payments` — duplicate, delayed and out-of-order events |
 
-5. **Test Suite Verification**:
-   - Run `npm test` in the terminal to show all Unit, Integration, and Concurrency tests passing.
+Each clip maps to the section of this document it demonstrates:
+
+- `concurrency_tests.mp4` → [Section 5.1](#1-preventing-overselling-under-high-concurrency)
+- `unit_test.mp4`, `integration_test.mp4` → [Section 5.2](#2-5-minute-hold--automatic-queue-promotion)
+- `payments.mp4`, `payments_simulation.mp4` → [Section 5.3](#3-handling-unreliable-payment-events)
