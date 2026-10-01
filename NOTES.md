@@ -32,30 +32,24 @@ npm install
 
 ### Starting the Applications
 
-#### 1. Start Backend API
-```bash
-npm run dev:api
-# Server runs on http://localhost:3001
-# Background expiration worker starts automatically
-```
+There is a single process. The API server also serves the UI, so there is no second dev server to launch and nothing to run on port 3000.
 
-#### 2. Start Frontend UI
-```bash
-npm run dev:web
-# Web UI runs on http://localhost:3000
-```
-
-#### 3. Run Everything Concurrently
-```bash
-npm run dev
-```
-
-#### 4. Seed / Reset Initial Data
+#### 1. Seed / Reset Initial Data
 ```bash
 npm run seed
 ```
 
-#### 5. Run Unreliable Payment Simulation Script
+#### 2. Start the Application
+```bash
+npm run dev
+# API and UI are both served at http://localhost:3001
+# Open http://localhost:3001 in a browser
+# Background expiration worker starts automatically
+```
+
+`npm run dev:api` starts the same server without the workspace wrapper if you prefer it.
+
+#### 3. Run Unreliable Payment Simulation Script
 ```bash
 npm run simulate:payments
 ```

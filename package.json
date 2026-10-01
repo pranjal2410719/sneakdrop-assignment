@@ -11,7 +11,6 @@
   "scripts": {
     "dev": "npm run dev:api",
     "dev:api": "npm run dev --workspace=@sneakdrop/api",
-    "dev:web": "npm run dev --workspace=@sneakdrop/web",
     "build": "tsc",
     "start": "node dist/apps/api/src/server.js",
     "test": "tsc && NODE_ENV=test node --test dist/tests/**/*.test.js",
