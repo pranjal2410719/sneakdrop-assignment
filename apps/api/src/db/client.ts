@@ -3,6 +3,25 @@ import { DatabaseSync } from 'node:sqlite';
 import { SCHEMA_SQL } from './schema.js';
 import path from 'path';
 import fs from 'fs';
+import { fileURLToPath } from 'url';
+
+function findProjectRoot(): string {
+  let dir = path.dirname(fileURLToPath(import.meta.url));
+  while (true) {
+    const pkgPath = path.join(dir, 'package.json');
+    if (fs.existsSync(pkgPath)) {
+      try {
+        const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+        if (pkg.workspaces) return dir;
+      } catch {
+        // keep walking up
+      }
+    }
+    const parent = path.dirname(dir);
+    if (parent === dir) return process.cwd();
+    dir = parent;
+  }
+}
 
 export interface DBConfig {
   dbPath?: string;
@@ -73,7 +92,7 @@ export function getDatabase(config: DBConfig = {}): DBWrapper {
     return dbInstance;
   }
 
-  const targetPath = process.env.DATABASE_URL || path.resolve(process.cwd(), 'sneakdrop.db');
+  const targetPath = process.env.DATABASE_URL || path.join(findProjectRoot(), 'sneakdrop.db');
   const dbDir = path.dirname(targetPath);
   if (!fs.existsSync(dbDir)) {
     fs.mkdirSync(dbDir, { recursive: true });
