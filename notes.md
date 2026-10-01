@@ -1,9 +1,15 @@
-# Notes
+# SneakDrop System - Notes
 
-## How to run
+Please see [NOTES.md](./NOTES.md) for full architecture, installation, concurrency design, test execution, and the screen recording guide.
 
-Write the steps to start your project here.
+## Quick Start
+```bash
+# Install dependencies
+npm install
 
-## Requirements
+# Start backend and frontend
+npm run dev
 
-Write anything that needs to be installed or set up first (for example a database, a Node or Python version, environment variables).
+# Run all test suites (Unit, Integration, Concurrency)
+npm test
+```
