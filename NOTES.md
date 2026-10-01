@@ -160,27 +160,27 @@ The fake payment service handles all real-world webhook edge cases:
 
 ## 6. Screen Recordings
 
-The required screen recording and the supporting demos are committed under [`assets/`](./assets).
+All recordings are committed under [`assets/`](./assets). Each link below is a direct play link — on GitHub a click opens the built-in video player for the file, and read locally it opens in your system video player. (GitHub strips `<video>` tags from markdown, so click-to-play links are the format that actually works there.)
 
 `assets/intro.mp4` is the submission recording: it walks through what was built, the architecture, how inventory reservation stops two users buying the same pair, the 5-minute hold, the FIFO waiting queue and automatic promotion, how delayed / duplicate / out-of-order payment events are handled, and how the system was tested.
 
 ### Main Walkthrough
 
-| Video | Duration | Covers |
+| Play | Duration | Covers |
 | --- | --- | --- |
-| [`intro.mp4`](./assets/intro.mp4) | 5:00 | The full explanation: what was built, architecture, how inventory reservation prevents two users buying the same pair, the 5-minute hold, the FIFO waiting queue and automatic promotion, how delayed/duplicate/out-of-order payment events are handled, and how the system was tested |
+| [▶ intro.mp4](./assets/intro.mp4) | 5:00 | The full explanation: what was built, architecture, how inventory reservation prevents two users buying the same pair, the 5-minute hold, the FIFO waiting queue and automatic promotion, how delayed/duplicate/out-of-order payment events are handled, and how the system was tested |
 
 ### Supporting Demos
 
-| Video | Duration | Command / Flow Shown |
+| Play | Duration | Command / Flow Shown |
 | --- | --- | --- |
-| [`seed.mp4`](./assets/seed.mp4) | 0:11 | `npm run seed` — initialises 20 pairs and demo users |
-| [`unit_test.mp4`](./assets/unit_test.mp4) | 0:09 | `npm run test:unit` — reservation, queue, payment idempotency |
-| [`integration_test.mp4`](./assets/integration_test.mp4) | 0:10 | `npm run test:integration` — purchase flow, hold expiry, queue promotion |
-| [`concurrency_tests.mp4`](./assets/concurrency_tests.mp4) | 0:07 | `npm run test:concurrency` — simultaneous Buy and duplicate payment races |
-| [`all_tests.mp4`](./assets/all_tests.mp4) | 0:15 | `npm test` — the complete suite (18 tests, 8 suites) |
-| [`payments.mp4`](./assets/payments.mp4) | 0:11 | Payment webhook completing a purchase |
-| [`payments_simulation.mp4`](./assets/payments_simulation.mp4) | 0:10 | `npm run simulate:payments` — duplicate, delayed and out-of-order events |
+| [▶ seed.mp4](./assets/seed.mp4) | 0:11 | `npm run seed` — initialises 20 pairs and demo users |
+| [▶ unit_test.mp4](./assets/unit_test.mp4) | 0:09 | `npm run test:unit` — reservation, queue, payment idempotency |
+| [▶ integration_test.mp4](./assets/integration_test.mp4) | 0:10 | `npm run test:integration` — purchase flow, hold expiry, queue promotion |
+| [▶ concurrency_tests.mp4](./assets/concurrency_tests.mp4) | 0:07 | `npm run test:concurrency` — simultaneous Buy and duplicate payment races |
+| [▶ all_tests.mp4](./assets/all_tests.mp4) | 0:15 | `npm test` — the complete suite (18 tests, 8 suites) |
+| [▶ payments.mp4](./assets/payments.mp4) | 0:11 | Payment webhook completing a purchase |
+| [▶ payments_simulation.mp4](./assets/payments_simulation.mp4) | 0:10 | `npm run simulate:payments` — duplicate, delayed and out-of-order events |
 
 Each clip maps to the section of this document it demonstrates:
 
