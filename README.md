@@ -14,21 +14,6 @@ Last time, their website sold 51 pairs when they only had 20, and they had to re
 
 Use any language or tools you are comfortable with.
 
-## Demo Videos
-
-Recordings of the system running are committed under [`assets/`](./assets). The main walkthrough is `intro.mp4`.
-
-| Video | Duration | Shows |
-| --- | --- | --- |
-| [Intro & full walkthrough](./assets/intro.mp4) | 5:00 | Architecture, concurrency guarantees, hold and queue flow, payment edge cases |
-| [Seed](./assets/seed.mp4) | 0:11 | Seeding the drop with 20 pairs |
-| [Unit tests](./assets/unit_test.mp4) | 0:09 | Reservation, queue and payment idempency tests |
-| [Integration tests](./assets/integration_test.mp4) | 0:10 | Purchase flow, hold expiry, queue promotion |
-| [Concurrency tests](./assets/concurrency_tests.mp4) | 0:07 | 100 simultaneous Buy requests with zero overselling |
-| [All tests](./assets/all_tests.mp4) | 0:15 | Full suite, 18 tests |
-| [Payments](./assets/payments.mp4) | 0:11 | Completing a purchase with the fake payment provider |
-| [Payment simulation](./assets/payments_simulation.mp4) | 0:10 | Duplicate, delayed and out-of-order webhook events |
-
 ## What you send back
 
 1. Your code (repo or zip)

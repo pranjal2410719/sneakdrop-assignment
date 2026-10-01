@@ -162,6 +162,8 @@ The fake payment service handles all real-world webhook edge cases:
 
 The required screen recording and the supporting demos are committed under [`assets/`](./assets).
 
+`assets/intro.mp4` is the submission recording: it walks through what was built, the architecture, how inventory reservation stops two users buying the same pair, the 5-minute hold, the FIFO waiting queue and automatic promotion, how delayed / duplicate / out-of-order payment events are handled, and how the system was tested.
+
 ### Main Walkthrough
 
 | Video | Duration | Covers |
@@ -185,3 +187,5 @@ Each clip maps to the section of this document it demonstrates:
 - `concurrency_tests.mp4` → [Section 5.1](#1-preventing-overselling-under-high-concurrency)
 - `unit_test.mp4`, `integration_test.mp4` → [Section 5.2](#2-5-minute-hold--automatic-queue-promotion)
 - `payments.mp4`, `payments_simulation.mp4` → [Section 5.3](#3-handling-unreliable-payment-events)
+
+> `README.md` is the original assignment brief and is left unmodified; all project documentation and submission notes live in this file.
